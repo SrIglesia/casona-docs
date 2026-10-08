@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casona docs - Tax Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Palette: Warm Ivory Paper, Deep Charcoal Ink & Granate / Bordeaux */
+  --bg: #F9F8F6;
+  --bg-subtle: #F3F1ED;
+  --surface: #FFFFFF;
+  --surface-alt: #FAF8F5;
+  --surface-hover: #F5F2EC;
+  
+  --ink: #1C1917;
+  --ink-secondary: #44403C;
+  --ink-muted: #78716C;
+  --ink-light: #A8A29E;
+
+  --line: #E7E4DF;
+  --line-strong: #1C1917;
+  --line-light: #F0EDE8;
+
+  /* Refined Garnet / Granate / Wine Tones */
+  --granate: #7A1C2E;
+  --granate-deep: #54111E;
+  --granate-light: #94253B;
+  --granate-surface: #FDF4F5;
+  --granate-tint: #FAF0F2;
+  --granate-border: #E8C4CB;
+  --granate-subtle: #F3E1E4;
+
+  /* Role Indicators — Elegant Garnet & Warm Neutral Tones */
+  --buyer: #7A1C2E;
+  --buyer-bg: #FAF0F2;
+  --buyer-border: #7A1C2E;
+
+  --seller: #44403C;
+  --seller-bg: #F3F1ED;
+  --seller-border: #57534E;
+
+  --owner: #601824;
+  --owner-bg: #FBF2F4;
+  --owner-border: #601824;
+
+  --heir: #8D253A;
+  --heir-bg: #FDF3F5;
+  --heir-border: #8D253A;
+
+  --cond: #78716C;
+  --cond-bg: #F5F4F0;
+  --ex: #8C857E;
+  --ex-bg: #F4F2EE;
+
+  --focus: #7A1C2E;
+  --serif: "Cormorant Garamond", "Newsreader", Georgia, serif;
+  --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,*::before,*::after{box-sizing:inherit}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-padding-top:env(safe-area-inset-top,0px);
+  background-color: var(--bg);
+}
+[hidden]{display:none !important}
+body{
+  margin:0;
+  color:var(--ink);
+  font:400 15px/1.65 var(--sans);
+  background:var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--granate);outline-offset:3px}
+
+.page{
+  max-width:1260px;
+  margin:0 auto;
+  padding:54px clamp(18px, 4.5vw, 52px) 96px;
+}
+
+/* Magazine Folio & Masthead */
+.mag-header{
+  margin-bottom:40px;
+}
+.mag-folio{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px 20px;
+  flex-wrap:wrap;
+  padding-bottom:14px;
+  border-bottom:1.5px solid var(--line-strong);
+  margin-bottom:34px;
+  font-size:11.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-secondary);
+}
+.mag-folio-lang{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+.mag-folio-lang .ctl-title{
+  min-width:0;
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--granate);
+}
+.mag-folio-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.mag-top-logo{
+  margin-bottom:14px;
+}
+.mag-top-logo img{
+  display:block;
+  height:52px;
+  width:auto;
+}
+@media (max-width:580px){
+  .mag-top-logo img{height:36px}
+}
+
+.mag-folio-title{
+  font-weight:700;
+  color:var(--granate);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.mag-folio-title::before{
+  content:"";
+  display:inline-block;
+  width:6px;
+  height:6px;
+  background:var(--granate);
+  border-radius:50%;
+}
+.mag-folio-meta{
+  font-weight:500;
+  color:var(--ink-muted);
+}
+
+.mag-hero{
+  display:grid;
+  grid-template-columns:minmax(0, 1.35fr) minmax(0, 1fr);
+  gap:36px 60px;
+  align-items:center;
+}
+h1{
+  font-family:var(--serif);
+  font-size:clamp(38px, 5.2vw, 62px);
+  font-weight:600;
+  line-height:1.02;
+  letter-spacing:-0.02em;
+  margin:0;
+  color:var(--ink);
+}
+h1 span.accent{
+  color:var(--granate);
+  font-style:italic;
+  font-weight:400;
+}
+.mag-intro{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.lede{
+  margin:0;
+  font-family:var(--serif);
+  font-size:clamp(19px, 1.8vw, 22px);
+  line-height:1.45;
+  color:var(--ink-secondary);
+  font-weight:400;
+}
+.scope-note{
+  margin:0;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--ink-muted);
+  border-left:2.5px solid var(--granate);
+  padding-left:14px;
+}
+
+/* Key Metrics — Granate Accented 4-Column Grid */
+.mag-numbers{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  border-top:1.5px solid var(--line-strong);
+  border-bottom:1px solid var(--line);
+  margin:44px 0 38px;
+  background:var(--surface);
+  box-shadow:0 10px 30px -10px rgba(122, 28, 46, 0.05);
+}
+.mag-num-item{
+  padding:26px 24px 28px;
+  border-right:1px solid var(--line);
+  position:relative;
+  transition:background 0.2s ease;
+}
+.mag-num-item:last-child{
+  border-right:none;
+}
+.mag-num-item:hover{
+  background:var(--granate-surface);
+}
+.mag-num-label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  color:var(--ink-muted);
+  margin-bottom:12px;
+  display:block;
+  font-weight:600;
+}
+.fig{
+  font-family:var(--serif);
+  font-size:clamp(38px, 4vw, 52px);
+  line-height:0.95;
+  font-weight:600;
+  letter-spacing:-0.02em;
+  margin-bottom:12px;
+  color:var(--granate);
+}
+.fig.neutral{
+  color:var(--ink);
+}
+.mag-num-item p{
+  margin:0;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--ink-secondary);
+}
+
+/* Elegant Controls Bar */
+.controls-bar{
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:22px 26px;
+  margin-bottom:18px;
+  box-shadow:0 4px 20px -4px rgba(0,0,0,0.03);
+  display:grid;
+  gap:16px;
+}
+.ctl-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px 16px;
+}
+.ctl-title{
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--granate);
+  min-width:80px;
+}
+.seg{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.seg button{
+  padding:6px 14px;
+  border:1px solid var(--line);
+  background:var(--bg-subtle);
+  color:var(--ink-secondary);
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  border-radius:2px;
+  transition:all 0.15s ease;
+}
+.seg button:hover{
+  border-color:var(--granate-border);
+  color:var(--granate);
+  background:var(--granate-tint);
+}
+.seg button[aria-pressed="true"]{
+  background:var(--granate);
+  color:#FFFFFF;
+  border-color:var(--granate);
+  font-weight:600;
+  box-shadow:0 2px 8px rgba(122, 28, 46, 0.25);
+}
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 22px;
+  align-items:center;
+  font-size:12px;
+  color:var(--ink-secondary);
+  padding-top:16px;
+  border-top:1px solid var(--line-light);
+}
+.legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.legend i{
+  display:inline-block;
+  width:12px;
+  height:12px;
+  background:var(--kb);
+  border:1px solid var(--k);
+  border-left-width:3.5px;
+  border-radius:1px;
+}
+.legend .k-cond i{
+  border:1px dashed var(--ink-muted);
+  border-left-width:3.5px;
+}
+
+/* Action Bar */
+.bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin:18px 4px 12px;
+  font-size:13px;
+  color:var(--ink-muted);
+}
+.linkbtn{
+  background:none;
+  border:none;
+  padding:4px 0;
+  color:var(--granate);
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:underline;
+  text-underline-offset:4px;
+  transition:color 0.15s;
+}
+.linkbtn:hover{
+  color:var(--granate-deep);
+}
+
+/* Editorial Table */
+.wrap{
+  border:1px solid var(--line);
+  background:var(--surface);
+  box-shadow:0 8px 30px -8px rgba(0,0,0,0.04);
+  overflow-x:auto;
+}
+table{
+  border-collapse:separate;
+  border-spacing:0;
+  width:100%;
+  min-width:1080px;
+  table-layout:fixed;
+}
+th,td{
+  text-align:left;
+  vertical-align:top;
+}
+
+/* Category Headers */
+.grp th{
+  background:var(--bg-subtle);
+  padding:15px 12px 13px;
+  border-top:1.5px solid var(--line-strong);
+  border-bottom:1px solid var(--line);
+}
+tbody tr.grp:first-child th{
+  border-top:0;
+}
+.grp th.gt{
+  position:sticky;
+  left:0;
+  z-index:3;
+  background:var(--bg-subtle);
+  font-family:var(--serif);
+  font-size:17px;
+  font-weight:600;
+  padding-left:20px;
+  padding-right:14px;
+  color:var(--granate);
+  border-right:1px solid var(--line);
+}
+.grp .cl{
+  border-right:1px solid var(--line-light);
+}
+.grp .cl span{
+  display:block;
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.2;
+}
+.grp .cl small{
+  display:block;
+  font-size:11.5px;
+  font-weight:400;
+  color:var(--ink-muted);
+  line-height:1.2;
+  margin-top:2px;
+}
+.grp .cl.on{
+  background:var(--granate-tint);
+}
+.grp .cl.on span{
+  color:var(--granate);
+}
+
+/* Table Rows */
+.row>th,.row>td{
+  border-top:1px solid var(--line-light);
+  border-right:1px solid var(--line-light);
+}
+.row th.name{
+  position:sticky;
+  left:0;
+  z-index:2;
+  background:var(--surface);
+  padding:0;
+  border-right:1.5px solid var(--line);
+}
+.row:hover th.name{
+  background:var(--surface-alt);
+}
+.row:hover td.cell{
+  background:var(--surface-hover);
+}
+
+.rowbtn{
+  display:grid;
+  grid-template-columns:14px minmax(0,1fr);
+  column-gap:10px;
+  width:100%;
+  padding:15px 14px 15px 20px;
+  background:none;
+  border:0;
+  text-align:left;
+  cursor:pointer;
+  transition:all 0.15s ease;
+}
+.rowbtn:hover .t{
+  color:var(--granate);
+}
+
+.chev{
+  width:6px;
+  height:6px;
+  margin:8px 0 0 2px;
+  border-right:1.5px solid var(--ink-muted);
+  border-bottom:1.5px solid var(--ink-muted);
+  transform:rotate(-45deg);
+  transition:transform 0.15s ease;
+}
+.rowbtn[aria-expanded="true"] .chev{
+  transform:rotate(45deg);
+  margin-top:6px;
+  border-color:var(--granate);
+}
+
+.nm{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+}
+.t{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:14.5px;
+  line-height:1.25;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+}
+.s{
+  font-size:12.5px;
+  color:var(--ink-secondary);
+  line-height:1.3;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 8px;
+  align-items:center;
+  margin-top:5px;
+}
+.lvl{
+  font-size:10.5px;
+  font-weight:600;
+  padding:1px 6px;
+  background:var(--bg);
+  border:1px solid var(--line);
+  color:var(--ink-secondary);
+  border-radius:2px;
+}
+.mod{
+  font-size:11.5px;
+  color:var(--ink-muted);
+}
+.na{
+  display:none;
+  padding:0 14px 12px 44px;
+  font-size:11.5px;
+  color:var(--ink-muted);
+  font-style:italic;
+}
+.row.dim .na{display:block}
+.row.dim .cell>*,.row.dim .rowbtn{opacity:.35}
+
+/* Table Cells & Granate Chips */
+td.cell{
+  padding:10px 8px;
+}
+td.cell.on{
+  background:var(--granate-tint);
+}
+td.cell.off .chip{
+  opacity:0.25;
+}
+.none{
+  display:block;
+  color:var(--line);
+  font-size:13px;
+  padding:6px 0 0 8px;
+}
+
+.k-buyer{--k:var(--buyer);--kb:var(--buyer-bg)}
+.k-seller{--k:var(--seller);--kb:var(--seller-bg)}
+.k-owner{--k:var(--owner);--kb:var(--owner-bg)}
+.k-heir{--k:var(--heir);--kb:var(--heir-bg)}
+.k-cond{--k:var(--cond);--kb:var(--cond-bg)}
+.k-ex{--k:var(--ex);--kb:var(--ex-bg)}
+
+.chip{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  padding:6px 9px 6px 10px;
+  background:var(--kb);
+  border:1px solid var(--line-light);
+  border-left:3.5px solid var(--k);
+  border-radius:2px;
+}
+.chip b{
+  font-weight:700;
+  font-size:13.5px;
+  line-height:1.2;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.chip span{
+  font-size:11.5px;
+  line-height:1.25;
+  color:var(--ink-secondary);
+}
+.chip.k-cond{
+  border:1px dashed var(--ink-muted);
+  border-left:3.5px solid var(--ink);
+}
+.chip.k-ex b{
+  color:var(--ink-secondary);
+  font-weight:500;
+}
+
+/* Detail Panel */
+tr.detail>td{
+  padding:0;
+  background:var(--surface-alt);
+  border-top:1px solid var(--line);
+  border-bottom:1.5px solid var(--granate-border);
+}
+.d-inner{
+  position:sticky;
+  left:0;
+  width:var(--wrapw,100%);
+  padding:24px 32px 26px 44px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px 44px;
+  border-left:4px solid var(--granate);
+  animation:reveal 0.15s ease-out;
+}
+.d-inner h4{
+  margin:0 0 6px;
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--granate);
+}
+.d-inner p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink-secondary);
+  max-width:62ch;
+}
+.d-wide{
+  grid-column:1/-1;
+  padding-left:16px;
+  border-left:2px solid var(--granate-border);
+}
+@keyframes reveal{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+
+/* Magazine Footer & Normative Notes */
+.mag-notes{
+  margin-top:52px;
+  border-top:1.5px solid var(--line-strong);
+  padding-top:36px;
+  display:grid;
+  grid-template-columns:minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap:36px 60px;
+}
+.mag-notes h2{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:600;
+  margin:0 0 16px;
+  color:var(--granate);
+}
+.mag-notes ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--ink-secondary);
+  font-size:13.5px;
+  line-height:1.65;
+}
+.mag-notes li{
+  margin:0 0 10px;
+  max-width:64ch;
+}
+.mag-notes p{
+  margin:0 0 12px;
+  color:var(--ink-secondary);
+  font-size:13.5px;
+  line-height:1.65;
+  max-width:60ch;
+}
+
+@media (max-width:960px){
+  .mag-hero{grid-template-columns:1fr;gap:20px}
+  .mag-numbers{grid-template-columns:repeat(2, minmax(0, 1fr))}
+  .mag-num-item:nth-child(2){border-right:none}
+  .mag-num-item:nth-child(3){border-top:1px solid var(--line)}
+  .mag-num-item:nth-child(4){border-top:1px solid var(--line)}
+  .mag-notes{grid-template-columns:1fr}
+}
+@media (max-width:580px){
+  .mag-folio{flex-direction:column;align-items:flex-start;gap:6px}
+  .mag-numbers{grid-template-columns:1fr}
+  .mag-num-item{padding:20px !important;border-right:none !important;border-top:1px solid var(--line)}
+  .mag-num-item:first-child{border-top:none}
+  .ctl-title{min-width:0;width:100%}
+  .d-inner{grid-template-columns:1fr;padding:18px 16px 20px 20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="mag-header">
+    <div class="mag-top-logo">
+      <img src="assets/logo_black.png" alt="Casona Docs">
+    </div>
+    <div class="mag-folio">
+      <div class="mag-folio-brand">
+        <span class="mag-folio-title" id="ui-folio-title">Guía de Fiscalidad Inmobiliaria</span>
+
+      </div>
+      <div class="mag-folio-lang">
+        <span class="ctl-title" id="lb-lang">Idioma / Lang</span>
+        <div class="seg" id="seg-lang" role="group" aria-labelledby="lb-lang"></div>
+      </div>
+    </div>
+    
+    <div class="mag-hero">
+      <h1 id="ui-hero-h1">Impuestos de una operación <span class="accent">inmobiliaria</span></h1>
+      <div class="mag-intro">
+        <p class="lede" id="ui-hero-lede">Qué se paga, quién asume la carga y cuánto corresponde liquidar en cada etapa de la vida de un inmueble.</p>
+        <p class="scope-note" id="ui-hero-note">Régimen fiscal general en España con los tipos cedidos de la Comunidad de Andalucía (ITP, AJD, Patrimonio y Sucesiones). Versión general de criterio prudente y orientativo.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="mag-numbers" id="ui-numbers" aria-label="Cifras clave"></section>
+
+  <section class="controls-bar" aria-label="Filtros de consulta">
+    <div class="ctl-row">
+      <span class="ctl-title" id="lb-op">Momento</span>
+      <div class="seg" id="seg-op" role="group" aria-labelledby="lb-op"></div>
+    </div>
+    <div class="ctl-row">
+      <span class="ctl-title" id="lb-pf">Perfil</span>
+      <div class="seg" id="seg-pf" role="group" aria-labelledby="lb-pf"></div>
+    </div>
+    <div class="legend" id="ui-legend" aria-label="Leyenda"></div>
+  </section>
+
+  <div class="bar">
+    <span id="count" aria-live="polite"></span>
+    <button type="button" class="linkbtn" id="toggleAll"></button>
+  </div>
+
+  <div class="wrap" id="wrap">
+    <table id="matrix" data-focus="all">
+      <colgroup><col style="width:290px"><col><col><col><col><col><col><col></colgroup>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <section class="mag-notes" id="ui-notes"></section>
+</main>
+
+<script>
+(function(){
+'use strict';
+
+var currentLang = 'es';
+
+var I18N = {
+  es: {
+    folioTitle: "Guía de Fiscalidad Inmobiliaria ",
+    folioMeta: "Casona Docs",
+    heroH1: 'Impuestos de una operación <span class="accent">inmobiliaria</span>',
+    heroLede: "Qué se paga, quién asume la carga y cuánto corresponde liquidar en cada etapa de la vida de un inmueble.",
+    heroNote: "Régimen fiscal general en España con los tipos cedidos de la Comunidad de Andalucía (ITP, AJD, Patrimonio y Sucesiones). Versión general de criterio prudente y orientativo.",
+    lblMoment: "Momento",
+    lblProfile: "Perfil",
+    lblLang: "Idioma",
+    openAll: "Abrir todos los detalles",
+    closeAll: "Cerrar todos los detalles",
+    naText: "No aplica a este perfil",
+    dimText: ". Las filas atenuadas no aplican a este perfil.",
+    countText: "de",
+    taxesText: "impuestos",
+    detailHeadings: {
+      base: "Base",
+      tipo: "Tipos",
+      quien: "Quién paga y cuándo",
+      ojo: "A tener en cuenta",
+      perfil: "Según el perfil"
+    },
+    kinds: {
+      buyer: 'Comprador',
+      seller: 'Vendedor',
+      owner: 'Propietario',
+      heir: 'Heredero',
+      cond: 'Depende',
+      ex: 'Exento'
+    },
+    numbers: [
+      { label: "Segunda Mano (ITP)", fig: "7 %", neutral: false, desc: "Tipo general en Andalucía. Puede reducirse hasta el 3,5 % en supuestos especiales de vivienda habitual." },
+      { label: "Obra Nueva (IVA + AJD)", fig: "11,2 %", neutral: true, desc: "10 % de IVA estatal sobre el precio más el 1,2 % de Actos Jurídicos Documentados autonómico." },
+      { label: "Ganancia Patrimonial", fig: "19–30 %", neutral: true, desc: "Escala del ahorro para residentes; 19 % para no residentes con retención a cuenta del 3 %." },
+      { label: "Sucesiones (ISD)", fig: "99 %", neutral: false, desc: "Bonificación de la cuota en Andalucía para transmisiones lucrativas en línea directa familiar." }
+    ],
+    cols: [
+      {id:'c2h', l:'Comprar', s:'segunda mano'},
+      {id:'cnew',l:'Comprar', s:'obra nueva'},
+      {id:'own', l:'Ser propietario', s:'cada año'},
+      {id:'rent',l:'Alquilar', s:'a terceros'},
+      {id:'sell',l:'Vender', s:''},
+      {id:'inh', l:'Heredar', s:''},
+      {id:'don', l:'Donar', s:'donante y donatario'}
+    ],
+    profiles: [
+      {id:'any', l:'Cualquiera'},
+      {id:'res', l:'Residente en España'},
+      {id:'nrue',l:'No residente UE/EEE'},
+      {id:'nrx', l:'No residente extra-UE'},
+      {id:'soc', l:'Sociedad'}
+    ],
+    groups: [
+      {id:'g1',t:'Sobre la transmisión del inmueble'},
+      {id:'g2',t:'Sobre la propiedad y el patrimonio'},
+      {id:'g3',t:'Sobre la renta'},
+      {id:'g4',t:'Obra, actividad y servicios'}
+    ],
+    notes: `
+      <div>
+        <h2>Puntos a validar antes de consultar</h2>
+        <ul>
+          <li><strong>Compradores extra-UE:</strong> Las propuestas sobre recargos específicos no están vigentes; contrastar antes de publicar o asesorar.</li>
+          <li><strong>Plusvalía municipal:</strong> Comprobar la ordenanza fiscal y los coeficientes del ayuntamiento correspondiente.</li>
+          <li><strong>ISD andaluz:</strong> Revisar la tarifa y los coeficientes de los grupos III y IV, así como el plazo en donaciones.</li>
+          <li><strong>Tipos reducidos:</strong> Verificar los requisitos específicos de la Ley 5/2021 antes de aplicarlos a una liquidación.</li>
+          <li><strong>Alquiler:</strong> Los porcentajes de reducción dependen de la fecha del contrato y de la declaración de zona de mercado tensionado.</li>
+          <li><strong>No residentes:</strong> Patrimonio, Grandes Fortunas y Sucesiones exigen análisis detallado de residencia y convenio.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Marco normativo</h2>
+        <p>Ley 5/2021 de tributos cedidos de Andalucía; texto refundido de ITP y AJD; Ley del IVA; Ley del IRPF; texto refundido del IRNR; texto refundido de Haciendas Locales; Ley 12/2023 por el derecho a la vivienda; Ley del Impuesto sobre Sociedades.</p>
+        <p>Esta matriz recoge el supuesto general. Los regímenes especiales, forales o casuísticas de usufructo exigen estudio pormenorizado.</p>
+      </div>`
+  },
+  en: {
+    folioTitle: "Real Estate Tax Guide ",
+    folioMeta: "Casona Docs",
+    heroH1: 'Taxes on a <span class="accent">real estate</span> transaction',
+    heroLede: "What is paid, who bears the burden, and how much is due at each stage of a property's lifecycle.",
+    heroNote: "General tax regime in Spain with transferred rates from the Autonomous Community of Andalusia (ITP, AJD, Wealth Tax, and Inheritance/Gift Tax). General guidance version.",
+    lblMoment: "Stage",
+    lblProfile: "Profile",
+    lblLang: "Language",
+    openAll: "Open all details",
+    closeAll: "Close all details",
+    naText: "Not applicable to this profile",
+    dimText: ". Faded rows do not apply to this profile.",
+    countText: "of",
+    taxesText: "taxes",
+    detailHeadings: {
+      base: "Tax Base",
+      tipo: "Rates",
+      quien: "Who pays & When",
+      ojo: "Important considerations",
+      perfil: "By profile"
+    },
+    kinds: {
+      buyer: 'Buyer',
+      seller: 'Seller',
+      owner: 'Owner',
+      heir: 'Heir',
+      cond: 'Conditional',
+      ex: 'Exempt'
+    },
+    numbers: [
+      { label: "Resale (ITP)", fig: "7 %", neutral: false, desc: "Standard rate in Andalusia. Can be reduced down to 3.5% for primary residence special cases." },
+      { label: "New Build (VAT + AJD)", fig: "11.2 %", neutral: true, desc: "10% state VAT on the purchase price plus 1.2% regional Stamp Duty (AJD)." },
+      { label: "Capital Gain", fig: "19–30 %", neutral: true, desc: "Savings scale for residents; 19% for non-residents with a 3% mandatory withholding at source." },
+      { label: "Inheritance (ISD)", fig: "99 %", neutral: false, desc: "Tax liability allowance in Andalusia for direct family transfer." }
+    ],
+    cols: [
+      {id:'c2h', l:'Buy', s:'resale'},
+      {id:'cnew',l:'Buy', s:'new build'},
+      {id:'own', l:'Ownership', s:'yearly'},
+      {id:'rent',l:'Rent out', s:'to third parties'},
+      {id:'sell',l:'Sell', s:''},
+      {id:'inh', l:'Inherit', s:''},
+      {id:'don', l:'Gift', s:'donor & donee'}
+    ],
+    profiles: [
+      {id:'any', l:'Any'},
+      {id:'res', l:'Spanish Resident'},
+      {id:'nrue',l:'Non-resident EU/EEA'},
+      {id:'nrx', l:'Non-resident non-EU'},
+      {id:'soc', l:'Corporate entity'}
+    ],
+    groups: [
+      {id:'g1',t:'Property Transfer Taxes'},
+      {id:'g2',t:'Ownership & Wealth Taxes'},
+      {id:'g3',t:'Income & Capital Gains Taxes'},
+      {id:'g4',t:'Construction, Activity & Services'}
+    ],
+    notes: `
+      <div>
+        <h2>Key Points to Verify Before Consulting</h2>
+        <ul>
+          <li><strong>Non-EU Buyers:</strong> Proposals regarding specific surcharges are not active; verify prior to publishing or advising.</li>
+          <li><strong>Municipal Capital Gains (Plusvalía):</strong> Check the local tax ordinance and coefficients of the relevant town hall.</li>
+          <li><strong>Andalusian Inheritance Tax:</strong> Review tax rates and multipliers for Groups III & IV, as well as deadines for gifts.</li>
+          <li><strong>Reduced Rates:</strong> Check exact criteria of Law 5/2021 before applying them to a tax settlement.</li>
+          <li><strong>Rental Deductions:</strong> Reduction percentages depend on contract execution date and stressed housing market area status.</li>
+          <li><strong>Non-residents:</strong> Wealth Tax, Solidary Wealth Tax, and Inheritance require detailed residence and treaty analysis.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Regulatory Framework</h2>
+        <p>Andalusia Law 5/2021 on transferred taxes; Recast ITP & AJD text; VAT Act; Personal Income Tax Act (IRPF); Non-Resident Income Tax Act (IRNR); Local Tax Act; Housing Right Law 12/2023; Corporate Income Tax Act.</p>
+        <p>This matrix reflects standard scenarios. Special corporate regimes, regional exemptions, or usufruct structures require custom review.</p>
+      </div>`
+  }
+};
+
+var ALL=['res','nrue','nrx','soc'];
+
+var ROWS=[
+/* ---------- Grupo 1 ---------- */
+{g:'g1',id:'iva',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Lo ingresa quien vende o alquila',en:'Remitted by seller or landlord'},
+ ap:ALL,
+ t:{es:'IVA',en:'VAT'},
+ s:{es:'Impuesto sobre el Valor Añadido',en:'Value Added Tax'},
+ c:{
+   c2h:['ex',{es:'Exenta',en:'Exempt'},{es:'Tributa por ITP',en:'Subject to ITP'}],
+   cnew:['buyer','10 %',{es:'Comprador',en:'Buyer'}],
+   rent:['cond',{es:'Depende',en:'Depends'},{es:'Vivienda exenta, local 21 %',en:'Residential exempt, commercial 21%'}]
+ },
+ d:{
+   base:{es:'Precio de la entrega o renta del alquiler, sin impuestos.',en:'Purchase price or rental income, before taxes.'},
+   tipo:{es:'Obra nueva: 10 % en vivienda y en sus garajes y anexos (hasta 2 unidades) vendidos con ella; 4 % en VPO de régimen especial; 21 % en locales, oficinas, garajes adicionales y solares edificables. Alquiler: vivienda de uso habitual exenta; locales y oficinas al 21 %; alquiler turístico exento salvo que incluya servicios de hostelería (10 %).',en:'New build: 10% residential (including up to 2 garage spaces/annexes sold together); 4% social housing; 21% commercial, offices, extra garages, and plots. Rental: main residence exempt; commercial/offices at 21%; holiday rentals exempt unless hospitality services are provided (10%).'},
+   quien:{es:'Obra nueva: el comprador soporta el impuesto; el promotor lo repercute y lo ingresa. Alquiler: el arrendador lo repercute al inquilino.',en:'New build: buyer pays tax; developer charges and remits it. Rental: landlord charges tenant.'},
+   ojo:{es:'Solo la primera entrega de un inmueble lleva IVA. Las segundas y posteriores están exentas y pasan a ITP. Los terrenos rústicos no edificables están exentos y tributan por ITP. Con el alquiler exento, el arrendador no puede deducir el IVA de sus gastos.',en:'Only first-time property conveyances carry VAT. Second-hand transactions are VAT-exempt and subject to ITP instead. Non-buildable rustic land is VAT-exempt (subject to ITP). For exempt residential rentals, landlords cannot deduct input VAT on expenses.'},
+   perfil:{es:'Un comprador empresario puede deducirse el IVA soportado; un particular no.',en:'A business entity/entrepreneur buyer can deduct input VAT; private individuals cannot.'}
+ }},
+
+{g:'g1',id:'itp',
+ lvl:{es:'Autonómico',en:'Regional'},
+ mod:{es:'Modelo 600, plazo de 2 meses',en:'Form 600, 2-month deadline'},
+ ap:ALL,
+ t:{es:'ITP',en:'Property Transfer Tax (ITP)'},
+ s:{es:'Transmisiones patrimoniales onerosas',en:'Onerous property transfers'},
+ c:{c2h:['buyer','7 %',{es:'Comprador',en:'Buyer'}]},
+ d:{
+   base:{es:'Base determinada conforme a las reglas del ITP: cuando exista valor de referencia del Catastro, debe tenerse en cuenta en los términos previstos legalmente.',en:'Base determined under ITP rules: when a Cadastral Reference Value exists, it must be considered as prescribed by law.'}, 
+   tipo:{es:'Andalucía: 7 % general. Existen tipos reducidos para determinados supuestos de vivienda habitual y para profesionales inmobiliarios que compran para reventa.',en:'Andalusia: 7% standard rate. Reduced rates exist for primary residences and real estate professionals purchasing for resale.'}, 
+   quien:{es:'El comprador, con el Modelo 600 ante la Junta de Andalucía, en los 2 meses siguientes a la firma.',en:'The buyer, submitting Form 600 to the Regional Tax Agency within 2 months of signing.'},
+   ojo:{es:'Los topes de valor se miden sobre el 100 % del inmueble aunque solo se compre una parte. También grava terrenos rústicos y derechos reales como el usufructo. No se suma al IVA: en obra nueva no se paga ITP.',en:'Value caps apply to 100% of the property value even if purchasing a partial share. It also applies to rustic land and real rights (e.g. usufruct). Not cumulative with VAT.'},
+   perfil:{es:'Los tipos reducidos exigen vivienda habitual, así que un no residente que compra una segunda residencia paga el 7 %.',en:'Reduced rates require primary residency; a non-resident purchasing a second home pays the standard 7%.'}
+ }},
+
+{g:'g1',id:'ajd',
+ lvl:{es:'Autonómico',en:'Regional'},
+ mod:{es:'Modelo 600, plazo de 2 meses',en:'Form 600, 2-month deadline'},
+ ap:ALL,
+ t:{es:'AJD',en:'Stamp Duty (AJD)'},
+ s:{es:'Actos jurídicos documentados',en:'Legal Documented Acts'},
+ c:{cnew:['buyer','1,2 %',{es:'Comprador',en:'Buyer'}],c2h:['cond',{es:'Hipoteca',en:'Mortgage'},{es:'Lo paga el banco',en:'Paid by bank'}]},
+ d:{
+   base:{es:'Valor que consta en la escritura. En la hipoteca, la responsabilidad hipotecaria: principal, intereses y costas.',en:'Deed value. For mortgage deeds: total secured liabilities (principal, interest, and costs).'},
+   tipo:{es:'Andalucía: 1,2 % general. Existen tipos reducidos para determinados supuestos de vivienda habitual y colectivos protegidos.',en:'Andalusia: 1.2% standard rate. Reduced rates available for primary residence and protected groups.'}, 
+   quien:{es:'Obra nueva: el comprador. Declaración de obra nueva y división horizontal: el promotor. Constitución de hipoteca: el banco.',en:'New build: buyer. New build declaration & division: developer. Mortgage origination: the bank.'},
+   ojo:{es:'En segunda mano no hay AJD por la compraventa (tributa por ITP). Solo aparece por la hipoteca, y la paga el banco.',en:'No Stamp Duty on resale conveyance deeds (covered by ITP). Only applies to mortgage deeds, which are paid by the lender.'}
+ }},
+
+{g:'g1',id:'ret',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 211, plazo de 1 mes',en:'Form 211, 1-month deadline'},
+ ap:ALL,
+ t:{es:'Retención del 3 %',en:'3% Retention'},
+ s:{es:'Compra a un vendedor no residente',en:'Purchase from non-resident seller'},
+ c:{c2h:['buyer',{es:'3 % retenido',en:'3% withheld'},{es:'Vendedor no residente',en:'Non-resident seller'}]},
+ d:{
+   base:{es:'Precio total pactado, no la ganancia.',en:'Total agreed purchase price, not net profit.'},
+   tipo:{es:'3 %.',en:'3%.'},
+   quien:{es:'El comprador lo descuenta del precio y lo ingresa en Hacienda con el Modelo 211 dentro del mes siguiente a la transmisión.',en:'The buyer deducts it from purchase price and submits Form 211 to Tax Agency within 1 month.'},
+   ojo:{es:'No suma coste: sale del precio que se paga al vendedor. Si el comprador no retiene, responde de la deuda del vendedor.',en:'Does not add net cost: deducted from funds due to seller. If buyer fails to withhold, liability transfers to buyer.'},
+   perfil:{es:'Se aplica cuando el vendedor no reside en España, sea persona física o sociedad sin establecimiento permanente.',en:'Applies whenever seller is non-resident (individual or entity without permanent establishment).'}
+ }},
+
+{g:'g1',id:'plus',
+ lvl:{es:'Local',en:'Municipal'},
+ mod:{es:'Ayuntamiento, 30 días hábiles',en:'Town hall, 30 business days'},
+ ap:ALL,
+ t:{es:'Plusvalía municipal',en:'Municipal Capital Gains'},
+ s:{es:'Incremento de valor de los terrenos urbanos',en:'Increase in value of urban land'},
+ c:{
+   sell:['seller',{es:'Según suelo',en:'Land-based'},{es:'Vendedor',en:'Seller'}],
+   inh:['heir',{es:'Según suelo',en:'Land-based'},{es:'Heredero',en:'Heir'}],
+   don:['heir',{es:'Según suelo',en:'Land-based'},{es:'Donatario',en:'Donee'}]
+ },
+ d:{
+   base:{es:'Incremento de valor de los terrenos urbanos según método objetivo o método de incremento real.',en:'Urban land value appreciation calculated via objective scale or real gain comparison.'}, 
+   tipo:{es:'Lo fija cada ayuntamiento, con un máximo legal del 30 %.',en:'Set locally by municipality, up to legal maximum of 30%.'},
+   quien:{es:'El vendedor en la compraventa, el heredero en la herencia y el donatario en la donación.',en:'Seller on purchase/sale, heir on inheritance, donee on gift.'},
+   ojo:{es:'No se paga si no existe incremento de valor en los supuestos legalmente previstos. Hay que declararlo igualmente.',en:'Exempt if no actual value appreciation occurred. Must still be formally filed and declared.'}
+ }},
+
+/* ---------- Grupo 2 ---------- */
+{g:'g2',id:'ibi',
+ lvl:{es:'Local',en:'Municipal'},
+ mod:{es:'Recibo anual',en:'Annual bill'},
+ ap:ALL,
+ t:{es:'IBI',en:'Property Tax (IBI)'},
+ s:{es:'Impuesto sobre bienes inmuebles',en:'Local Municipal Property Tax'},
+ c:{
+   own:['owner',{es:'Según ordenanza',en:'Per local rate'},{es:'Propietario',en:'Owner'}],
+   c2h:['cond',{es:'Prorrateo',en:'Pro-rata'},{es:'Con el vendedor',en:'With seller'}]
+ },
+ d:{
+   base:{es:'Valor catastral.',en:'Cadastral value.'},
+   tipo:{es:'Lo fija cada ayuntamiento dentro de los límites legales.',en:'Set by town hall within national statutory limits.'}, 
+   quien:{es:'El propietario a 1 de enero. En la compraventa se prorratea entre vendedor y comprador.',en:'Owner of record on Jan 1st. Customarily split pro-rata between buyer and seller in conveyances.'},
+   ojo:{es:'Recargo para vivienda desocupada de forma permanente si el ayuntamiento lo aprueba: hasta el 150 %.',en:'Municipalities may apply up to 150% surcharge on long-term vacant residential dwellings.'}
+ }},
+
+{g:'g2',id:'tasas',
+ lvl:{es:'Local',en:'Municipal'},
+ mod:{es:'Ordenanza municipal',en:'Municipal ordinance'},
+ ap:ALL,
+ t:{es:'Tasas municipales',en:'Municipal Fees'},
+ s:{es:'Basuras, alcantarillado, vado',en:'Waste management, sewage, driveway'},
+ c:{own:['owner',{es:'Según ordenanza',en:'Per local rate'},{es:'Propietario u ocupante',en:'Owner or occupant'}]},
+ d:{
+   base:{es:'El servicio prestado o el uso del dominio público.',en:'Service rendered or public domain usage.'},
+   tipo:{es:'Cuota fijada por cada ayuntamiento.',en:'Fixed annual fee per local municipality.'},
+   quien:{es:'Propietario u ocupante, según la ordenanza.',en:'Property owner or occupant based on local regulations.'},
+   ojo:{es:'No son impuestos, pero se cobran junto al IBI o al agua.',en:'Not technically taxes, but mandatory civic fees billed with water/IBI.'}
+ }},
+
+{g:'g2',id:'pat',
+ lvl:{es:'Autonómico',en:'Regional'},
+ mod:{es:'Modelo 714',en:'Form 714'},
+ ap:['res','nrue','nrx'],
+ t:{es:'Impuesto sobre el Patrimonio',en:'Wealth Tax'},
+ s:{es:'Patrimonio neto a 31 de diciembre',en:'Net wealth as of Dec 31st'},
+ c:{own:['cond',{es:'Bonificación 100 %',en:'100% Tax Relief'},{es:'Andalucía',en:'Andalusia'}]},
+ d:{
+   base:{es:'Patrimonio neto (bienes menos deudas). Mínimo exento de 700.000 € y 300.000 € para vivienda habitual.',en:'Net assets. Standard €700k tax-free allowance + €300k main residence exemption.'},
+   tipo:{es:'La cuota resultante queda bonificada al 100 % en Andalucía conforme a la normativa vigente.',en:'100% tax relief applied to final liability under Andalusian regional law.'}, 
+   quien:{es:'Personas físicas: residentes por todo su patrimonio; no residentes por bienes en España.',en:'Individuals: residents worldwide; non-residents for Spanish-situs assets.'},
+   ojo:{es:'La bonificación no elimina obligaciones formales de declaración ni el Impuesto de Solidaridad.',en:'Relief does not exempt filing obligations if threshold reached or Solidarity Tax applies.'}, 
+   perfil:{es:'No residentes: validar normativa autonómica aplicable.',en:'Non-residents: check specific applicable regional rules and treaty relief.'}
+ }},
+
+{g:'g2',id:'isgf',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 718',en:'Form 718'},
+ ap:['res','nrue','nrx'],
+ t:{es:'Impuesto de Grandes Fortunas',en:'Solidarity Wealth Tax'},
+ s:{es:'Patrimonio neto superior a 3 M€',en:'Net wealth above €3M'},
+ c:{own:['cond',{es:'Más de 3 M€',en:'Over €3M'},{es:'Patrimonio neto',en:'Net wealth'}]},
+ d:{
+   base:{es:'Patrimonio neto por encima de 3 M€.',en:'Net worldwide/Spanish wealth exceeding €3,000,000 threshold.'},
+   tipo:{es:'1,7 % entre 3 y 5 M€; 2,1 % entre 5 y 10 M€; 3,5 % por encima de 10 M€.',en:'1.7% (€3M–€5M); 2.1% (€5M–€10M); 3.5% (above €10M).'},
+   quien:{es:'Personas físicas, residentes o no residentes por sus bienes en España.',en:'Individuals (residents and non-residents holding Spanish real estate).'},
+   ojo:{es:'Complementa al Impuesto sobre el Patrimonio. La cuota pagada por Patrimonio se deduce.',en:'Complements Wealth Tax. Amounts effectively paid under regional Wealth Tax are deductible.'}
+ }},
+
+{g:'g2',id:'gebi',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 213',en:'Form 213'},
+ ap:['soc'],
+ t:{es:'Gravamen especial no residentes',en:'Non-Resident Entity Tax'},
+ s:{es:'Inmuebles en España',en:'Real estate held in Spain'},
+ c:{own:['owner','3 %',{es:'Sociedad no residente',en:'Non-resident company'}]},
+ d:{
+   base:{es:'Valor catastral.',en:'Cadastral value.'},
+   tipo:{es:'3 % anual en los supuestos en que resulte aplicable.',en:'3% annual levy where applicable.'}, 
+   quien:{es:'Entidades no residentes propietarias de inmuebles en España.',en:'Foreign corporate entities owning real estate in Spain.'},
+   ojo:{es:'Existen exenciones para sociedades radicadas en países con convenio con cláusula de intercambio de información.',en:'Exemptions apply to corporate entities in tax treaty jurisdictions with information exchange clauses.'}
+ }},
+
+{g:'g2',id:'isd',
+ lvl:{es:'Autonómico',en:'Regional'},
+ mod:{es:'Modelos 650 y 651',en:'Forms 650 & 651'},
+ ap:['res','nrue','nrx'],
+ t:{es:'ISD',en:'Inheritance & Gift Tax'},
+ s:{es:'Sucesiones y donaciones',en:'Inheritance and lifetime gifts'},
+ c:{
+   inh:['heir','−99 %',{es:'Familia directa',en:'Direct family'}],
+   don:['heir','−99 %',{es:'Familia directa',en:'Direct family'}]
+ },
+ d:{
+   base:{es:'Valor real neto de lo que recibe cada heredero o donatario.',en:'Net real value received by each heir or donee.'},
+   tipo:{es:'Andalucía: bonificación del 99 % para el Grupo I y II (cónyuge, hijos, padres). Grupos III y IV sin bonificación (7–26 %).',en:'Andalusia: 99% tax relief for Group I/II (spouses, children, parents). Groups III/IV non-relatives pay 7–26%.'},
+   quien:{es:'El heredero o donatario. Herencia: 6 meses (prorrogables). Donación: 30 días hábiles.',en:'Heir or donee. Inheritance: 6 months. Gifts: 30 business days.'},
+   ojo:{es:'En donaciones exige escritura pública. La plusvalía municipal se paga aparte.',en:'Gifts require public notary deed to qualify for relief. Municipal capital gains charged separately.'},
+   perfil:{es:'No residentes UE/EEE y extra-UE pueden acogerse a normativa autonómica según jurisprudencia.',en:'Non-residents (both EU and non-EU) can apply Andalusian regional benefits per Supreme Court rulings.'}
+ }},
+
+/* ---------- Grupo 3 ---------- */
+{g:'g3',id:'imp',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 100 o 210',en:'Form 100 or 210'},
+ ap:['res','nrue','nrx'],
+ t:{es:'Renta imputada de inmuebles',en:'Imputed Property Income Tax'},
+ s:{es:'IRPF o IRNR',en:'Personal or Non-Resident Income Tax'},
+ c:{own:['owner','1,1–2 %',{es:'Propietario',en:'Property Owner'}]},
+ d:{
+   base:{es:'1,1 % del valor catastral si fue revisado en los últimos 10 años; 2 % en caso contrario.',en:'1.1% of Cadastral Value if revised within 10 years; 2% otherwise.'},
+   tipo:{es:'Residentes: base general IRPF (19–47 %). No residentes: 19 % (UE/EEE) o 24 % (resto).',en:'Residents: general income tax scale (19–47%). Non-residents: 19% (EU/EEA) or 24% (non-EU).'},
+   quien:{es:'Propietario de inmuebles urbanos que no sean vivienda habitual ni estén alquilados.',en:'Owners of vacant urban properties not used as primary residence nor rented out.'},
+   ojo:{es:'Es un impuesto sobre renta ficticia por tener la propiedad vacía a disposición del dueño.',en:'Fictional tax on deemed personal use of unrented secondary properties.'}
+ }},
+
+{g:'g3',id:'irpfa',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 100',en:'Form 100'},
+ ap:['res'],
+ t:{es:'IRPF, rentas del alquiler',en:'Income Tax on Rent (Resident)'},
+ s:{es:'Rendimientos del capital inmobiliario',en:'Rental Income'},
+ c:{rent:['owner',{es:'Según contrato',en:'Per contract'},{es:'Propietario residente',en:'Resident owner'}]},
+ d:{
+   base:{es:'Ingresos menos gastos deducibles (IBI, comunidad, seguros, amortización 3 %, intereses).',en:'Gross rental income minus deductible operating expenses and 3% building depreciation.'},
+   tipo:{es:'Rendimiento neto integrado en base general. Reducciones para alquiler residencial (50 %, 60 %, 70 % o 90 %).',en:'Net yield added to general tax base. Residential lease tax reductions available (50–90%).'},
+   quien:{es:'Propietario o usufructuario residente.',en:'Resident owner or usufructuary.'},
+   ojo:{es:'Las reducciones elevadas del 70–90 % aplican únicamente en zonas de mercado tensionado.',en:'Higher tax discounts (70–90%) apply strictly in designated stressed housing zones.'}
+ }},
+
+{g:'g3',id:'irnra',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 210, trimestral',en:'Form 210, quarterly'},
+ ap:['nrue','nrx'],
+ t:{es:'IRNR, rentas del alquiler',en:'Income Tax on Rent (Non-Resident)'},
+ s:{es:'Propietario no residente',en:'Non-resident property owner'},
+ c:{rent:['owner','19 % o 24 %',{es:'Propietario no residente',en:'Non-resident owner'}]},
+ d:{
+   base:{es:'UE/EEE pueden deducir gastos. No-UE tributan sobre el ingreso bruto sin deducciones.',en:'EU/EEA residents can deduct expenses. Non-EU residents taxed flat on gross revenue without expense deductions.'},
+   tipo:{es:'19 % para residentes UE/EEE; 24 % para no residentes extra-UE.',en:'19% flat rate for EU/EEA residents; 24% flat rate for non-EU/EEA residents.'}, 
+   quien:{es:'El propietario no residente, en el Modelo 210 trimestral.',en:'Non-resident owner, submitted quarterly via Form 210.'},
+   ojo:{es:'Para no-UE, tributar al 24 % sobre el bruto reduce sustancialmente la rentabilidad neta.',en:'For non-EU owners, paying 24% on gross revenue severely impacts net yields.'}
+ }},
+
+{g:'g3',id:'irpfg',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 100',en:'Form 100'},
+ ap:['res'],
+ t:{es:'IRPF, ganancia patrimonial',en:'Capital Gains Tax (Resident)'},
+ s:{es:'Venta o donación de un residente',en:'Sale or gift by resident'},
+ c:{
+   sell:['seller','19–30 %',{es:'Vendedor residente',en:'Resident seller'}],
+   don:['seller','19–30 %',{es:'Donante',en:'Donor'}],
+   inh:['ex',{es:'Sin ganancia',en:'No gain'},{es:'Tributa por ISD',en:'Subject to ISD'}]
+ },
+ d:{
+   base:{es:'Valor de transmisión (menos gastos) menos valor de adquisición (más tributos y reformas).',en:'Net transfer value minus total acquisition cost (including purchase taxes and improvements).'},
+   tipo:{es:'Escala del ahorro: 19 % (hasta 6k €), 21 % (hasta 50k €), 23 % (hasta 200k €), 27 % (hasta 300k €) y 30 % (>300k €).',en:'Savings scale: 19% (up to €6k), 21% (€6k–€50k), 23% (€50k–€200k), 27% (€200k–€300k), 30% (>€300k).'},
+   quien:{es:'El vendedor residente en la declaración anual de IRPF.',en:'Resident seller via annual tax return.'},
+   ojo:{es:'Exención por reinversión en vivienda habitual en 2 años o mayores de 65 años en su vivienda habitual.',en:'Exempt if reinvested in new primary home within 2 years, or if seller is >65 years old selling primary residence.'}
+ }},
+
+{g:'g3',id:'irnrg',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 210, plazo de 3 meses',en:'Form 210, 3-month deadline'},
+ ap:['nrue','nrx'],
+ t:{es:'IRNR, ganancia patrimonial',en:'Capital Gains Tax (Non-Resident)'},
+ s:{es:'Venta o donación de un no residente',en:'Sale or gift by non-resident'},
+ c:{
+   sell:['seller','19 %',{es:'Vendedor no residente',en:'Non-resident seller'}],
+   don:['seller','19 %',{es:'Donante no residente',en:'Non-resident donor'}]
+ },
+ d:{
+   base:{es:'Ganancia patrimonial neta (precio de venta final menos costes de adquisición justificados).',en:'Net real capital gain (selling price minus verified cost basis and taxes).'},
+   tipo:{es:'19 % sobre la ganancia neta para todos los no residentes.',en:'19% flat rate on net capital gain for all non-residents.'},
+   quien:{es:'Vendedor no residente. El comprador retiene el 3 % y el vendedor liquida el resto en 3 meses.',en:'Non-resident seller. Buyer withholds 3% at purchase; seller files final return within 3 months.'},
+   ojo:{es:'Si la ganancia resultante es menor al 3 % retenido, se puede solicitar la devolución del exceso.',en:'If actual capital gain tax is less than the 3% withheld at purchase, seller can claim a refund.'}
+ }},
+
+{g:'g3',id:'is',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Modelo 200',en:'Form 200'},
+ ap:['soc'],
+ t:{es:'Impuesto sobre Sociedades',en:'Corporate Income Tax'},
+ s:{es:'Si el titular es una sociedad',en:'When owner is a corporation'},
+ c:{
+   rent:['owner','25 %',{es:'Sociedad',en:'Company'}],
+   sell:['seller','25 %',{es:'Sociedad',en:'Company'}]
+ },
+ d:{
+   base:{es:'Resultado contable ajustado (ingresos por alquiler o ganancia en venta menos gastos).',en:'Net taxable accounting profit (rental income or gain on sale minus business expenses).'},
+   tipo:{es:'25 % tipo general de sociedades.',en:'25% standard corporate rate.'},
+   quien:{es:'La sociedad española propietaria.',en:'Spanish corporate owner.'},
+   ojo:{es:'Existe un régimen especial para arrendamiento de viviendas con bonificación del 85 % de la cuota.',en:'Special corporate regime for residential leasing provides an 85% tax reduction on rental income.'},
+   perfil:{es:'Sociedades no residentes sin establecimiento tributan por IRNR (19/24 %), no por Sociedades.',en:'Non-resident entities without permanent establishment are taxed via IRNR (19/24%), not Corporate Tax.'}
+ }},
+
+/* ---------- Grupo 4 ---------- */
+{g:'g4',id:'icio',
+ lvl:{es:'Local',en:'Municipal'},
+ mod:{es:'Ayuntamiento',en:'Town hall'},
+ ap:ALL,
+ t:{es:'ICIO',en:'Construction & Works Tax (ICIO)'},
+ s:{es:'Construcciones, instalaciones y obras',en:'Building works and improvements'},
+ c:{cnew:['cond',{es:'Hasta 4 %',en:'Up to 4%'},{es:'Promotor, va en el precio',en:'Developer, included in price'}]},
+ d:{
+   base:{es:'Coste real y efectivo de la obra de construcción.',en:'Actual execution cost of construction/renovation work.'},
+   tipo:{es:'Fijado por el ayuntamiento, hasta un máximo del 4 %.',en:'Set by town hall, max legal limit of 4%.'},
+   quien:{es:'Dueño de la obra (promotor en obra nueva, propietario en reformas).',en:'Owner of works (developer in new builds, property owner in private renovations).'},
+   ojo:{es:'Se devenga al iniciar la obra. La tasa por licencia urbanística se cobra aparte.',en:'Due upon start of works. Municipal planning permission license fee is billed separately.'}
+ }},
+
+{g:'g4',id:'iae',
+ lvl:{es:'Local',en:'Municipal'},
+ mod:{es:'Ayuntamiento y AEAT',en:'Town hall & Tax Agency'},
+ ap:ALL,
+ t:{es:'IAE',en:'Business Activity Tax (IAE)'},
+ s:{es:'Actividad económica de alquilar',en:'Economic activity of leasing'},
+ c:{rent:['ex',{es:'Exento',en:'Exempt'},{es:'Casi siempre',en:'Most cases'}]},
+ d:{
+   base:{es:'Cuota fija según la actividad y superficie.',en:'Tariff based on activity type and property floor area.'},
+   tipo:{es:'Tarifas estatales ajustadas con coeficientes locales.',en:'State scale adjusted by municipal multipliers.'},
+   quien:{es:'Quien ejerce el alquiler como actividad económica organizada.',en:'Entities operating large-scale rental activities.'},
+   ojo:{es:'Exentas personas físicas y sociedades con cifra de negocios inferior a 1 M€.',en:'Individuals and companies with turnover below €1,000,000 are completely exempt.'}
+ }},
+
+{g:'g4',id:'ivas',
+ lvl:{es:'Estatal',en:'State'},
+ mod:{es:'Lo repercute cada profesional',en:'Billed by service provider'},
+ ap:ALL,
+ t:{es:'IVA en servicios y honorarios',en:'VAT on Professional Fees'},
+ s:{es:'Notaría, registro, gestoría, agencia',en:'Notary, registry, management, agency'},
+ c:{
+   c2h:['cond',{es:'Coste + IVA',en:'Fee + VAT'},{es:'Servicios',en:'Services'}],
+   cnew:['cond',{es:'Coste + IVA',en:'Fee + VAT'},{es:'Servicios',en:'Services'}],
+   sell:['cond',{es:'Coste + IVA',en:'Fee + VAT'},{es:'Agencia inmobiliaria',en:'Agency fee'}]
+ },
+ d:{
+   base:{es:'Honorarios y aranceles del servicio profesional.',en:'Professional service fees and official tariffs.'},
+   tipo:{es:'Tipo general del 21 % de IVA.',en:'Standard 21% VAT rate.'},
+   quien:{es:'Quien contrata los servicios profesionales.',en:'Party contracting the professional service.'},
+   ojo:{es:'Aplica sobre honorarios de agencias, gestorías, notarios y registradores.',en:'Applies to real estate agency commission, conveyancing legal fees, and notary tariffs.'}
+ }}
+];
+
+var state={op:'all',pf:'any'};
+var tbody=document.getElementById('tbody');
+var tableEl=document.getElementById('matrix');
+var wrap=document.getElementById('wrap');
+var countEl=document.getElementById('count');
+var toggleAllBtn=document.getElementById('toggleAll');
+var rowsState=[],groupsState=[];
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function chip(x){
+  var label = (typeof x[1] === 'object') ? x[1][currentLang] : x[1];
+  var sub = (typeof x[2] === 'object') ? x[2][currentLang] : (x[2] || I18N[currentLang].kinds[x[0]]);
+  return '<span class="chip k-'+x[0]+'"><b>'+esc(label)+'</b><span>'+esc(sub)+'</span></span>';
+}
+function sec(hKey,txtObj,cls){
+  if(!txtObj) return '';
+  var h = I18N[currentLang].detailHeadings[hKey];
+  var txt = (typeof txtObj === 'object') ? txtObj[currentLang] : txtObj;
+  return '<section'+(cls?' class="'+cls+'"':'')+'><h4>'+esc(h)+'</h4><p>'+esc(txt)+'</p></section>';
+}
+
+function buildSeg(el,items,key,onClick){
+  el.innerHTML = '';
+  items.forEach(function(it){
+    var b=document.createElement('button');
+    b.type='button';b.textContent=it.l;b.dataset.id=it.id;
+    b.setAttribute('aria-pressed',String(state[key]===it.id));
+    b.addEventListener('click',function(){
+      state[key]=it.id;
+      Array.prototype.forEach.call(el.children,function(x){x.setAttribute('aria-pressed',String(x.dataset.id===it.id))});
+      if(onClick) onClick();
+      apply();
+    });
+    el.appendChild(b);
+  });
+}
+
+function renderStaticUI(){
+  var dict = I18N[currentLang];
+  document.getElementById('ui-folio-title').textContent = dict.folioTitle;
+  document.getElementById('ui-hero-h1').innerHTML = dict.heroH1;
+  document.getElementById('ui-hero-lede').textContent = dict.heroLede;
+  document.getElementById('ui-hero-note').textContent = dict.heroNote;
+  document.getElementById('lb-op').textContent = dict.lblMoment;
+  document.getElementById('lb-pf').textContent = dict.lblProfile;
+  document.getElementById('lb-lang').textContent = dict.lblLang;
+
+  /* Render Key Metrics */
+  var numEl = document.getElementById('ui-numbers');
+  numEl.innerHTML = dict.numbers.map(function(n){
+    return '<div class="mag-num-item"><span class="mag-num-label">'+esc(n.label)+'</span>'
+      +'<div class="fig'+(n.neutral?' neutral':'')+'">'+esc(n.fig)+'</div><p>'+esc(n.desc)+'</p></div>';
+  }).join('');
+
+  /* Render Legend */
+  var legEl = document.getElementById('ui-legend');
+  legEl.innerHTML = '<span class="k-buyer"><i></i>'+esc(dict.kinds.buyer)+'</span>'
+    +'<span class="k-seller"><i></i>'+esc(dict.kinds.seller)+'</span>'
+    +'<span class="k-owner"><i></i>'+esc(dict.kinds.owner)+'</span>'
+    +'<span class="k-heir"><i></i>'+esc(dict.kinds.heir)+'</span>'
+    +'<span class="k-cond"><i></i>'+esc(dict.kinds.cond)+'</span>'
+    +'<span class="k-ex"><i></i>'+esc(dict.kinds.ex)+'</span>';
+
+  /* Render Notes */
+  document.getElementById('ui-notes').innerHTML = dict.notes;
+}
+
+function initFilters(){
+  var dict = I18N[currentLang];
+  
+  /* Lang filter */
+  buildSeg(document.getElementById('seg-lang'), [{id:'es',l:'Español'},{id:'en',l:'English'}], 'lang', function(){
+    currentLang = state.lang;
+    renderAll();
+  });
+
+  /* Operation filter */
+  var opItems=[{id:'all',l:(currentLang==='es'?'Todos':'All')}].concat(dict.cols.map(function(c){
+    return {id:c.id, l:c.s && (c.l==='Comprar'||c.l==='Buy') ? (c.l+', '+c.s) : c.l};
+  }));
+  buildSeg(document.getElementById('seg-op'), opItems, 'op');
+
+  /* Profile filter */
+  buildSeg(document.getElementById('seg-pf'), dict.profiles, 'pf');
+}
+
+function renderTable(){
+  tbody.innerHTML = '';
+  rowsState = [];
+  groupsState = [];
+  var dict = I18N[currentLang];
+
+  dict.groups.forEach(function(g){
+    var gtr=document.createElement('tr');gtr.className='grp';
+    gtr.innerHTML='<th class="gt" scope="col">'+esc(g.t)+'</th>'+dict.cols.map(function(c){
+      return '<th class="cl" scope="col" data-col="'+c.id+'"><span>'+esc(c.l)+'</span>'+(c.s?'<small>'+esc(c.s)+'</small>':'')+'</th>';
+    }).join('');
+    tbody.appendChild(gtr);
+    var gs={tr:gtr,rows:[]};groupsState.push(gs);
+
+    ROWS.filter(function(r){return r.g===g.id}).forEach(function(r){
+      var tr=document.createElement('tr');tr.className='row';tr.dataset.id=r.id;
+      tr.innerHTML='<th scope="row" class="name"><button type="button" class="rowbtn" aria-expanded="false" aria-controls="d-'+r.id+'">'
+        +'<span class="chev" aria-hidden="true"></span><span class="nm"><span class="t">'+esc(r.t[currentLang])+'</span><span class="s">'+esc(r.s[currentLang])+'</span>'
+        +'<span class="meta"><span class="lvl">'+esc(r.lvl[currentLang])+'</span><span class="mod">'+esc(r.mod[currentLang])+'</span></span></span></button>'
+        +'<span class="na">'+esc(dict.naText)+'</span></th>'
+        +dict.cols.map(function(c){var x=r.c[c.id];return '<td class="cell" data-col="'+c.id+'">'+(x?chip(x):'<span class="none" aria-hidden="true">–</span>')+'</td>'}).join('');
+      
+      var dr=document.createElement('tr');dr.className='detail';dr.id='d-'+r.id;dr.hidden=true;
+      dr.innerHTML='<td colspan="'+(dict.cols.length+1)+'"><div class="d-inner">'
+        +sec('base',r.d.base)+sec('tipo',r.d.tipo)+sec('quien',r.d.quien)+sec('ojo',r.d.ojo)
+        +(r.d.perfil?sec('perfil',r.d.perfil,'d-wide'):'')+'</div></td>';
+      
+      tbody.appendChild(tr);tbody.appendChild(dr);
+      var rs={def:r,tr:tr,dr:dr,open:false,btn:tr.querySelector('.rowbtn')};
+      rowsState.push(rs);gs.rows.push(rs);
+    });
+  });
+}
+
+function setOpen(rs,v){
+  rs.open=v;rs.btn.setAttribute('aria-expanded',String(v));
+  rs.dr.hidden=!(v&&!rs.tr.hidden);
+}
+
+function apply(){
+  var dict = I18N[currentLang];
+  var n=0;
+  rowsState.forEach(function(r){
+    var vis=state.op==='all'||!!r.def.c[state.op];
+    r.tr.hidden=!vis;
+    r.dr.hidden=!(vis&&r.open);
+    r.tr.classList.toggle('dim',state.pf!=='any'&&r.def.ap.indexOf(state.pf)<0);
+    if(vis)n++;
+  });
+  groupsState.forEach(function(g){g.tr.hidden=!g.rows.some(function(r){return !r.tr.hidden})});
+  tableEl.dataset.focus=state.op;
+  Array.prototype.forEach.call(tableEl.querySelectorAll('td.cell'),function(td){
+    var focus=state.op!=='all';
+    td.classList.toggle('on',focus&&td.dataset.col===state.op);
+    td.classList.toggle('off',focus&&td.dataset.col!==state.op);
+  });
+  Array.prototype.forEach.call(tableEl.querySelectorAll('th.cl'),function(th){
+    th.classList.toggle('on',state.op!=='all'&&th.dataset.col===state.op);
+  });
+  countEl.textContent=n+' '+dict.countText+' '+ROWS.length+' '+dict.taxesText+(state.pf!=='any'?dict.dimText:'');
+  updateToggleLabel();
+}
+
+function visibleRows(){return rowsState.filter(function(r){return !r.tr.hidden})}
+function updateToggleLabel(){
+  var dict = I18N[currentLang];
+  var v=visibleRows();
+  var allOpen=v.length>0&&v.every(function(r){return r.open});
+  toggleAllBtn.textContent=allOpen?dict.closeAll:dict.openAll;
+}
+
+function renderAll(){
+  document.documentElement.lang = currentLang;
+  state.lang = currentLang;
+  renderStaticUI();
+  initFilters();
+  renderTable();
+  apply();
+}
+
+/* Event Listeners */
+tbody.addEventListener('click',function(e){
+  var b=e.target.closest('.rowbtn');if(!b)return;
+  var id=b.closest('tr.row').dataset.id;
+  var rs=rowsState.filter(function(x){return x.def.id===id})[0];
+  setOpen(rs,!rs.open);
+  updateToggleLabel();
+});
+
+toggleAllBtn.addEventListener('click',function(){
+  var v=visibleRows();
+  var allOpen=v.every(function(r){return r.open});
+  v.forEach(function(r){setOpen(r,!allOpen)});
+  updateToggleLabel();
+});
+
+/* Responsive Panel Adjustment */
+function setW(){document.documentElement.style.setProperty('--wrapw',wrap.clientWidth+'px')}
+window.addEventListener('resize',setW);
+
+/* Initial Boot */
+renderAll();
+setW();
+
+})();
+</script>
+</body>
+</html>
